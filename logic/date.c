@@ -87,9 +87,9 @@ struct date sDate;
 void reset_date(void)
 {
 	// Set date 
-	sDate.year  = 2009;
-	sDate.month = 8;
-	sDate.day 	= 1;
+	sDate.year  = 2010;
+	sDate.month = 11;
+	sDate.day 	= 27;
 	
 	// Show default display
 	sDate.view = 0;
