@@ -95,8 +95,8 @@ void test_mode(void)
 	LCDBVCTL = 0;
 	
 	// Show welcome screen 
-	display_chars(LCD_SEG_L1_3_0, (u8*)"0430", SEG_ON);
-	display_chars(LCD_SEG_L2_4_0, (u8*)"CC430", SEG_ON);
+	display_chars(LCD_SEG_L1_3_0, (u8*)"JOSH", SEG_ON);
+	display_chars(LCD_SEG_L2_4_0, (u8*)"BETHY", SEG_ON);
 	display_symbol(LCD_SEG_L1_COL, SEG_ON);
 	display_symbol(LCD_ICON_HEART, SEG_ON);
 	display_symbol(LCD_ICON_STOPWATCH, SEG_ON);
