@@ -48,6 +48,7 @@ extern void add_day(void);
 extern void mx_date(u8 line);
 extern void sx_date(u8 line);
 extern void display_date(u8 line, u8 update);
+extern void update_bethany(void);
 
 
 // *************************************************************************************************

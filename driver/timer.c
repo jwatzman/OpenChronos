@@ -347,6 +347,8 @@ __interrupt void TIMER0_A0_ISR(void)
 		
 		// Check if alarm needs to be turned on
 		check_alarm();
+
+		update_bethany();
 	}
 
 	// -------------------------------------------------------------------

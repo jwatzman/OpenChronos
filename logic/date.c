@@ -376,3 +376,31 @@ void display_date(line_t line, update_t update)
 		// This is NOT ONLY called on switch to next menu item
 	}	
 }
+
+u8 heart = SEG_OFF;
+void update_bethany(void)
+{
+	u8 new_heart = SEG_OFF;
+
+	if (sTime.minute == 11)
+	{
+		if (sTime.hour == 11)
+		{
+			new_heart = SEG_ON;
+		}
+	}
+	else if (sDate.day == 27)
+	{
+		if (sDate.month == 11)
+		{
+			new_heart = SEG_ON;
+		}
+	}
+	// TODO others
+
+	if (new_heart != heart)
+	{
+		heart = new_heart;
+		display_symbol(LCD_ICON_HEART, heart);
+	}
+}
