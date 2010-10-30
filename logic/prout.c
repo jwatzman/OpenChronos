@@ -71,7 +71,8 @@
 
 struct prouttimer sprouttimer;
 
-#define POUET_STR " POUET PROUT KATAPLOP  POUET"
+// TODO fix
+#define POUET_STR " BETHANY IS AWESOME I LOVE YOU"
 
 static u8 *str = POUET_STR;
 
