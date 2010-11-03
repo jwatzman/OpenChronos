@@ -382,16 +382,30 @@ void update_bethany(void)
 {
 	u8 new_heart = SEG_OFF;
 
-	if (sTime.minute == 11)
+	if (sTime.minute == 11) // 11:11
 	{
 		if (sTime.hour == 11)
 		{
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 27)
+	else if (sTime.minute == 7) // 7:07
+	{
+		if (sTime.hour == 7)
+		{
+			new_heart = SEG_ON;
+		}
+	}
+	else if (sDate.day == 27) // birthday
 	{
 		if (sDate.month == 11)
+		{
+			new_heart = SEG_ON;
+		}
+	}
+	else if (sDate.day == 23) // anniversary
+	{
+		if (sDate.month == 1)
 		{
 			new_heart = SEG_ON;
 		}
