@@ -410,7 +410,27 @@ void update_bethany(void)
 			new_heart = SEG_ON;
 		}
 	}
-	// TODO others
+	else if (sDate.day == 14) // valentine's
+	{
+		if (sDate.month == 2)
+		{
+			newHeart = SEG_ON;
+		}
+	}
+	else if (sDate.day == 6) // virginity
+	{
+		if (sDate.month == 3)
+		{
+			newHeart = SEG_ON;
+		}
+	}
+	else if (sDate.day == 7) // first contact
+	{
+		if (sDate.month == 12)
+		{
+			newHeart = SEG_ON;
+		}
+	}
 
 	if (new_heart != heart)
 	{
