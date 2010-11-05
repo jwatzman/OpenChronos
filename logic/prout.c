@@ -72,7 +72,7 @@
 struct prouttimer sprouttimer;
 
 // TODO fix
-#define POUET_STR " BETHANY IS AWESOME I LOVE YOU"
+#define POUET_STR " BETHANY IS AWESOME I LOVE YOU BETHA"
 
 static u8 *str = POUET_STR;
 
@@ -130,6 +130,7 @@ void display_prout(u8 line, u8 update)
 	cur[6] = 0;
 
 	display_chars(LCD_SEG_L2_5_0, cur, SEG_ON);
+	//display_chars(LCD_SEG_L1_3_0, "JOSH", SEG_ON);
 }
 
 void reset_prout(void)
