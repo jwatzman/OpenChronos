@@ -116,7 +116,7 @@ void stop_prout()
   /* // Clear timer interrupt enable    */
   /* TA0CCTL2 &= ~CCIE;  */
 
-  sprouttimer.state = PROUT_STOP;
+	reset_prout();
 	
   display_symbol(LCD_ICON_RECORD, SEG_OFF);
 
