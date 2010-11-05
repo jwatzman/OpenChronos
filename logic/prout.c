@@ -72,7 +72,7 @@
 struct prouttimer sprouttimer;
 
 // TODO fix
-#define POUET_STR " BETHANY IS AWESOME I LOVE YOU BETHA"
+#define POUET_STR " BETHANY 1S AWESOMME 1 LOVE YOU BETHA"
 
 static u8 *str = POUET_STR;
 
