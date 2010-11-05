@@ -414,21 +414,21 @@ void update_bethany(void)
 	{
 		if (sDate.month == 2)
 		{
-			newHeart = SEG_ON;
+			new_heart = SEG_ON;
 		}
 	}
 	else if (sDate.day == 6) // virginity
 	{
 		if (sDate.month == 3)
 		{
-			newHeart = SEG_ON;
+			new_heart = SEG_ON;
 		}
 	}
 	else if (sDate.day == 7) // first contact
 	{
 		if (sDate.month == 12)
 		{
-			newHeart = SEG_ON;
+			new_heart = SEG_ON;
 		}
 	}
 
