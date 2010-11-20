@@ -71,8 +71,7 @@ struct prouttimer
 {
   u8 state;
   u8 pos;
-  u8 ticks;
-  u8 time[8];
+  u8 message_idx;
 };
 
 extern struct prouttimer sprouttimer;

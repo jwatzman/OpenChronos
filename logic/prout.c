@@ -71,14 +71,17 @@
 
 struct prouttimer sprouttimer;
 
-// TODO fix
-#define POUET_STR " BETHANY 1S AWESOMME 1 LOVE YOU BETHA"
+#define NUM_STRS 2
 
-static u8 *str = POUET_STR;
+#define POUET_STR_1 " BETHANY 1S AWESOMME 1 LOVE YOU BETHA"
+#define POUET_STR_2 " ALPHA BETA GAMMA DELTA"
+
+static u8 *strs[NUM_STRS] = {POUET_STR_1, POUET_STR_2};
+static u8 lens[NUM_STRS] = {sizeof(POUET_STR_1), sizeof(POUET_STR_2)};
 
 void prout_tick()
 {
-	sprouttimer.pos = (sprouttimer.pos+1) % (sizeof(POUET_STR)-7);
+	sprouttimer.pos = (sprouttimer.pos+1) % (lens[sprouttimer.message_idx]-7);
 	display_prout(0, 0);
 }
 
@@ -99,7 +102,9 @@ void start_prout()
 
 void stop_prout()
 {
-	reset_prout();
+	sprouttimer.pos = 0;
+	sprouttimer.state = PROUT_STOP;
+	sprouttimer.message_idx = (sprouttimer.message_idx + 1) % NUM_STRS;
 
 	display_symbol(LCD_ICON_RECORD, SEG_OFF);
 
@@ -126,7 +131,7 @@ void mx_prout(u8 line)
 void display_prout(u8 line, u8 update)
 {
 	u8 cur[7];
-	memcpy(cur, str + sprouttimer.pos, 6);
+	memcpy(cur, strs[sprouttimer.message_idx] + sprouttimer.pos, 6);
 	cur[6] = 0;
 
 	display_chars(LCD_SEG_L2_5_0, cur, SEG_ON);
@@ -137,6 +142,7 @@ void reset_prout(void)
 {
 	sprouttimer.pos = 0;
 	sprouttimer.state = PROUT_STOP;
+	sprouttimer.message_idx = 0;
 }
 
 #endif /* CONFIG_PROUT */
