@@ -71,13 +71,18 @@
 
 struct prouttimer sprouttimer;
 
-#define NUM_STRS 2
+#define NUM_STRS 5
 
 #define POUET_STR_1 " BETHANY 1S AWESOMME 1 LOVE YOU BETHA"
-#define POUET_STR_2 " ALPHA BETA GAMMA DELTA"
+#define POUET_STR_2 " BETHANY YOU ARE BEAUT1FUL BETHA"
+#define POUET_STR_3 " BETHANY DOES NOT PREFER CHEESE BETHA"
+#define POUET_STR_4 " BETHANY BADGER MUSHROOM BETHA"
+#define POUET_STR_5 " BETHANY MAKES ME SO HAPPY BETHA"
 
-static u8 *strs[NUM_STRS] = {POUET_STR_1, POUET_STR_2};
-static u8 lens[NUM_STRS] = {sizeof(POUET_STR_1), sizeof(POUET_STR_2)};
+static u8 *strs[NUM_STRS] = {POUET_STR_1, POUET_STR_2, POUET_STR_3,
+	POUET_STR_4, POUET_STR_5};
+static u8 lens[NUM_STRS] = {sizeof(POUET_STR_1), sizeof(POUET_STR_2),
+	sizeof(POUET_STR_3), sizeof(POUET_STR_4), sizeof(POUET_STR_5)};
 
 void prout_tick()
 {
@@ -97,6 +102,7 @@ void update_prout_timer()
 void start_prout()
 {
 	sprouttimer.state = PROUT_RUN;
+	//sprouttimer.message_idx = sDate.day % NUM_STRS;
 	display_symbol(LCD_ICON_RECORD, SEG_ON);
 }
 
