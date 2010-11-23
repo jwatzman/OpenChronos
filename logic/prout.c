@@ -65,6 +65,7 @@
 
 // logic
 #include "user.h"
+#include "date.h"
 #include "prout.h"
 
 #include "menu.h"
@@ -104,15 +105,13 @@ void update_prout_timer()
 void start_prout()
 {
 	sprouttimer.state = PROUT_RUN;
-	//sprouttimer.message_idx = sDate.day % NUM_STRS;
+	sprouttimer.message_idx = sDate.day % NUM_STRS;
 	display_symbol(LCD_ICON_RECORD, SEG_ON);
 }
 
 void stop_prout()
 {
-	sprouttimer.pos = 0;
-	sprouttimer.state = PROUT_STOP;
-	sprouttimer.message_idx = (sprouttimer.message_idx + 1) % NUM_STRS;
+	reset_prout();
 
 	display_symbol(LCD_ICON_RECORD, SEG_OFF);
 
