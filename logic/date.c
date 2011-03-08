@@ -384,14 +384,14 @@ void update_bethany(void)
 
 	if (sTime.minute == 11) // 11:11
 	{
-		if (sTime.hour == 11)
+		if (sTime.hour % 12 == 11)
 		{
 			new_heart = SEG_ON;
 		}
 	}
 	else if (sTime.minute == 7) // 7:07
 	{
-		if (sTime.hour == 7)
+		if (sTime.hour % 12 == 7)
 		{
 			new_heart = SEG_ON;
 		}
