@@ -274,7 +274,8 @@ void sx_date(line_t line)
 void display_date(line_t line, update_t update)
 {
 #ifdef CONFIG_DAY_OF_WEEK
-	const u8 weekDayStr[7][3] = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
+	static const u8 weekDayStr[7][3] = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
+	static const u8 weekDaySkew[12]  = {0, 3, 3, 6, 1, 4, 6, 2, 5, 0, 3, 5};
 #endif
 	u8 * str;
 	
@@ -290,41 +291,15 @@ void display_date(line_t line, update_t update)
 
 				//pfs BEGIN replace year display with day of week
 				//pfs algorith from http://klausler.com/new-dayofweek.html
-				#define BASE_YEAR 2001 // not a leap year, so no need to add 1
-				u8 skew;
-				skew = (sDate.year - BASE_YEAR)+(sDate.year - BASE_YEAR)/4; // compute number of leap years since BASE_YEAR
+				#define BASE_YEAR 1984
+				u8 skew = sDate.year - BASE_YEAR;
+				skew += skew/4; // compute number of leap years since BASE_YEAR
 				if ((29 == get_numberOfDays(2, sDate.year)) && (sDate.month < 3))
 				  skew--; // if this is a leap year but before February 29
-				skew = (skew + sDate.day); // add day of current month
-				//add this month's skew value
-				switch(sDate.month) {
-				  case 5:
-					skew += 1;
-					break;
-				  case 8:
-					skew += 2;
-					break;
-				  case 2:
-				  case 3:
-				  case 11:
-					skew += 3;
-					break;
-				  case 6:
-					skew += 4;
-					break;
-				  case 9:
-				  case 12:
-					skew += 5;
-					break;
-				  case 4:
-				  case 7:
-					skew += 6;
-					break;
-				  default:  //January and October
-					break;
-				}
-				skew = skew%7;
-				str = (u8 *)weekDayStr[skew];
+				str = (u8 *)weekDayStr[(skew +
+																sDate.day +
+																weekDaySkew[sDate.month - 1]) % 7 ];
+
 				display_chars(switch_seg(line, LCD_SEG_L1_3_2, LCD_SEG_L2_4_2), str, SEG_ON);
 				display_symbol(switch_seg(line, LCD_SEG_L1_DP1, LCD_SEG_L2_DP), SEG_ON);
 				break;
