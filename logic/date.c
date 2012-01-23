@@ -396,35 +396,35 @@ void update_bethany(void)
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 27) // birthday
+	else if (sDate.day == 27)
 	{
 		if (sDate.month == 11)
 		{
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 23) // anniversary
+	else if (sDate.day == 23)
 	{
 		if (sDate.month == 1)
 		{
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 14) // valentine's
+	else if (sDate.day == 14)
 	{
 		if (sDate.month == 2)
 		{
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 6) // virginity
+	else if (sDate.day == 6)
 	{
 		if (sDate.month == 3)
 		{
 			new_heart = SEG_ON;
 		}
 	}
-	else if (sDate.day == 7) // first contact
+	else if (sDate.day == 7)
 	{
 		if (sDate.month == 12)
 		{
